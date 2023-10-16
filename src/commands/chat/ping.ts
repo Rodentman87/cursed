@@ -1,17 +1,16 @@
-import { SlashCommand } from 'slashasaurus';
+import { SlashCommand } from "slashasaurus";
+import DoubleClickPage from "../../pages/DoubleClick";
 
 export default new SlashCommand(
 	{
-		name: 'ping',
-		description: 'Pings the bot to make sure everything is working',
+		name: "ping",
+		description: "Pings the bot to make sure everything is working",
 		options: [],
 	},
 	{
 		run: (interaction) => {
-			interaction.reply({
-				content: `Pong!`,
-				ephemeral: true,
-			});
+			const page = new DoubleClickPage();
+			page.sendAsReply(interaction, true);
 		},
 	}
 );
